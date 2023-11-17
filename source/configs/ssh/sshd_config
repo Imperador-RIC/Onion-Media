@@ -1,0 +1,9 @@
+AllowTcpForwarding no
+Compression yes
+LoginGraceTime 15
+MaxSessions 3
+PasswordAuthentication no
+PermitEmptyPasswords no
+PermitRootLogin yes
+Port 22
+Protocol 2

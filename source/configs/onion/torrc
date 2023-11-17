@@ -1,0 +1,5 @@
+HiddenServiceDir /var/lib/tor/hidden_service/
+HiddenServicePort 80 0.0.0.0:80
+HiddenServicePort 22 0.0.0.0:22
+ProtocolWarnings 1
+IPv6Exit 1
