@@ -36,3 +36,21 @@ You can also remember your website's onion URL through the following link:
 `http://localhost:80/hostname.tor`
 
 And with your onion URL in hand, you can access your website, or use a TOR proxy to access your container via SSH.
+
+## Limitations of SSH
+
+For security reasons, the onion network and the operation of Docker, there are certain limitations related to SSH, including:
+
+- Access to the server is via trusted public keys configured in the `source/configs/ssh/authorized_keys` file, and there is no possibility of connecting via passwords.
+
+- SSH has a limit number of simultaneous connections, you can change this and other server settings in the `source/configs/ssh/sshd_config` file.
+
+- As the connection is made via the TOR network, the connection tends to be slow.
+
+- If you change the container used to host your website, when you try to connect via SSH again, your SSH client will recognize that it hears some change on the server when connecting, you can bypass the strict checking of the server keys and connect to the server , or delete the known keys from your SSH client:
+
+    - Recommended option: To bypass strict key checking, run:
+    `ssh -o StrictHostKeyChecking=no username@hostname`
+
+    - To erase your SSH client's known keys, run:
+    `rm ~/.ssh/known_hosts.old ~/.ssh/known_hosts`
