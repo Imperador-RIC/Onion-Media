@@ -1,5 +1,7 @@
 source/configs/onion/keys/*
 source/configs/onion/hostname
 source/configs/ssh/authorized_keys
+
 source/www/media/*
+
 !.gitkeep

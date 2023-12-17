@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 
     <meta charset="UTF-8">
@@ -21,12 +21,14 @@
         <nav>
 
             <ul type="none">
-    
+
                 <a href="index.php" target="_self"><li>Main Media</li></a>
+
                 <!-- These functions will be implemented in the future -->
-                <li hidden>Hidden Media</li>
+
                 <li hidden>All Media</li>
                 <li hidden>Search Media</li>
+                <li hidden>Modify Media</li>
                 <li hidden>Dark/Light</li>
 
             </ul>
@@ -37,33 +39,25 @@
 
     <main>
 
-        <?php
+    <div>
 
-            $dir = "media";
+        <h3>Main media without folders:</h3>
 
-            $items = scandir($dir);
+    </div>
 
-            foreach($items as $item) {
+        <div class="content">
 
-                if ($item != "." && $item != ".." && $item != ".gitkeep") {
+            <?php
 
-                    if (is_file($dir . '/' . $item) && substr($item, 0, 1) != '.') {
+                require_once "modules.php";
 
-                        echo <<< EXIT
+                $dir = "media";
 
-                            <a href="media/$item">
-                                <p>$item</p>
-                            </a>
+                view_media ($dir);
 
-                        EXIT;
+            ?>
 
-                    };
-
-                };
-
-            };
-
-        ?>
+        </div>
 
     </main>
 
